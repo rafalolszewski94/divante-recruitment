@@ -12,7 +12,7 @@
 
         <div class="search">
           <button>
-            <img :src="SVG_SEARCH" alt="" />
+            <img src="../assets/lnr-magnifier.svg" alt="" />
           </button>
         </div>
       </div>
@@ -21,15 +21,9 @@
 </template>
 
 <script>
-import searchIcon from '@/assets/lnr-magnifier.svg';
-
 export default {
   name: 'Header',
-  computed: {
-    SVG_SEARCH() {
-      return searchIcon;
-    },
-  },
+  computed: {},
 };
 </script>
 
@@ -47,7 +41,7 @@ header {
 }
 
 .logo {
-  @apply mr-auto;
+  @apply mr-auto font-hairline text-2xl;
 }
 
 .links {
@@ -61,6 +55,12 @@ header {
 
     &:hover {
       background-color: #f5f5f5;
+
+      @apply text-primary;
+    }
+
+    &.router-link-exact-active {
+      @apply text-primary;
     }
   }
 }

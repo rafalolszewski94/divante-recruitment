@@ -3,3 +3,77 @@
 @tailwind utilities;
 
 @import 'fonts';
+
+body {
+  background-color: #fafafa;
+}
+
+.row {
+  @apply flex items-start;
+}
+
+.sidebar {
+  padding: 25px;
+
+  @apply w-1/5 bg-primary text-white mr-auto;
+
+  section {
+    &:not(:last-child) {
+      @apply mb-8;
+    }
+  }
+}
+
+.product-list {
+  @apply w-4/5 flex flex-wrap -mx-6;
+
+  .col {
+    @apply w-1/4 px-6 mb-10;
+  }
+
+  article {
+    transition: box-shadow 0.1s ease;
+
+    @apply bg-white h-full;
+
+    &:hover {
+      @apply shadow-md cursor-pointer;
+    }
+
+    img {
+      width: 100%;
+      min-height: 218px;
+    }
+
+    div {
+      padding: 15px;
+
+      h2 {
+        @apply text-lg font-bold text-gray-800 mb-2;
+      }
+
+      span {
+        @apply text-sm text-gray-600;
+      }
+    }
+  }
+}
+
+.product-detail {
+  @apply w-4/5 flex flex-wrap -mx-6;
+
+  .col {
+    @apply w-1/4 px-6 mb-10;
+  }
+}
+
+.icon {
+  height: 100px;
+  width: 100px;
+
+  @apply border-2 border-primary rounded-full mx-auto mb-10 flex justify-center items-center;
+
+  img {
+    height: 50px;
+  }
+}
