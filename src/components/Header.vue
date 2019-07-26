@@ -41,13 +41,32 @@ export default {
   name: 'Header',
   data() {
     return {
+      windowWidth: 0,
       showMenu: false,
     };
   },
-  computed: {},
+  beforeDestroy() {
+    window.removeEventListener('resize', this.getWindowWidth);
+  },
+  mounted() {
+    this.$nextTick(() => {
+      window.addEventListener('resize', this.getWindowWidth);
+      this.getWindowWidth();
+    });
+  },
+  watch: {
+    windowWidth(val) {
+      if (val >= 640) {
+        this.showMenu = false;
+      }
+    },
+  },
   methods: {
+    getWindowWidth() {
+      this.windowWidth = document.documentElement.clientWidth;
+    },
     toggleMenu() {
-      if (window.innerWidth < 768) {
+      if (window.innerWidth < 640) {
         this.showMenu = !this.showMenu;
       }
     },
@@ -61,7 +80,7 @@ header {
   margin-bottom: 70px;
   border-color: #d6d6d6;
 
-  @apply border-b;
+  @apply border-b relative;
 
   .container {
     @apply flex items-center w-full h-full;
@@ -97,10 +116,24 @@ header {
   height: 99px;
   width: 100px;
 
-  @apply inline-flex items-center justify-center;
+  @apply inline-flex items-center justify-center relative;
 
-  button {
+  button,
+  input {
     @apply inline-flex h-full flex-grow items-center justify-center;
+  }
+
+  input {
+    bottom: 100%;
+    width: 100%;
+
+    @apply absolute top-0 outline-none text-2xl px-10;
+
+    @media (min-width: 640px) {
+      bottom: auto;
+      right: 100%;
+      width: auto;
+    }
   }
 }
 

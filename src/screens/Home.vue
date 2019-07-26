@@ -1,22 +1,11 @@
 <template>
   <main class="w-full" :class="getMainClass()">
     <template v-if="$router.currentRoute.name !== 'Product'">
-      <div
-        class="col w-full md:w-1/2 lg:w-1/3 xl:w-1/4"
+      <product-card
         v-for="(product, i) in products"
         :key="`Product(${i})`"
-      >
-        <router-link
-          tag="article"
-          :to="{ name: 'Product', params: { id: product.id } }"
-        >
-          <img :src="product.img" alt="" />
-          <div>
-            <h2>{{ product.title }}</h2>
-            <span>{{ product.desc }}</span>
-          </div>
-        </router-link>
-      </div>
+        :product="product"
+      />
     </template>
 
     <router-view />
@@ -25,9 +14,11 @@
 
 <script>
 import { PRODUCTS } from '../utils';
+import ProductCard from './ProductCard';
 
 export default {
   name: 'Home',
+  components: { ProductCard },
   data() {
     return {
       products: PRODUCTS,
@@ -47,5 +38,3 @@ export default {
   },
 };
 </script>
-
-<style scoped lang="scss"></style>

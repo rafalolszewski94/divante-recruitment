@@ -22,7 +22,8 @@ const getters = {
       .map(id => {
         return PRODUCTS.find(product => product.id === id);
       })
-      .reduce((a, b) => a + b.price, 0);
+      .reduce((a, b) => a + b.price, 0)
+      .toFixed(2);
   },
 };
 
@@ -32,12 +33,21 @@ const actions = {
     if (state.cart.filter(item => item === productId).length) return;
     commit('addProductToCart', productId);
   },
+  removeProductFromCart({ state, commit }, productId) {
+    const indexToDelete = state.cart.findIndex(
+      product => product === productId,
+    );
+    commit('removeProductFromCart', indexToDelete);
+  },
 };
 
 // mutations
 const mutations = {
   addProductToCart(state, productId) {
     state.cart.push(productId);
+  },
+  removeProductFromCart(state, indexToDelete) {
+    state.cart.splice(indexToDelete, 1);
   },
 };
 
