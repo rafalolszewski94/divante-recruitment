@@ -112,3 +112,51 @@ body {
     height: 50px;
   }
 }
+
+.notification {
+  height: 100px;
+  z-index: 3;
+
+  @apply bg-primary w-full text-white justify-center absolute shadow-lg flex items-center;
+
+  button {
+    height: 100%;
+    width: 80px;
+
+    @apply inline-flex items-center justify-center absolute right-0 outline-none;
+
+    svg {
+      max-height: 24px;
+      max-width: 24px;
+
+      @apply flex-grow;
+    }
+  }
+}
+
+.slide-in-out-enter-active,
+.slide-in-out-small-enter-active {
+  transition: all 0.15s ease;
+}
+
+.slide-in-out-leave-active,
+.slide-in-out-small-leave-active {
+  transition: all 0.15s cubic-bezier(0.1, 0.3, 0.5, 1);
+}
+
+.slide-in-out-enter,
+.slide-in-out-leave-to,
+.slide-in-out-small-enter,
+.slide-in-out-small-leave-to {
+  opacity: 0;
+}
+
+.slide-in-out-enter,
+.slide-in-out-leave-to {
+  transform: translateY(-60px);
+}
+
+.slide-in-out-small-enter,
+.slide-in-out-small-leave-to {
+  transform: translateY(-10px);
+}

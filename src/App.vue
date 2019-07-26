@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <notification />
     <c-header />
     <div class="container">
       <div class="row flex-col md:flex-row">

@@ -51,7 +51,12 @@ export default {
   },
   methods: {
     addProductToCart(productId) {
-      this.$store.dispatch('cart/addProductToCart', productId);
+      this.$store.dispatch('cart/addProductToCart', productId).then(() => {
+        this.$notification.show({
+          content: 'Product has been added to your cart!',
+        });
+        this.$router.push('/');
+      });
     },
   },
 };

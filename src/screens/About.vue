@@ -8,8 +8,8 @@
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab commodi
       dignissimos dolor doloremque, doloribus ducimus eos ex exercitationem
-      facere facilis ipsam ipsum iusto laboriosam laborum magnam maiores
-      numquam pariatur, ratione reiciendis saepe tempore tem.
+      facere facilis ipsam ipsum iusto laboriosam laborum magnam maiores numquam
+      pariatur, ratione reiciendis saepe tempore tem.
     </p>
   </main>
 </template>
