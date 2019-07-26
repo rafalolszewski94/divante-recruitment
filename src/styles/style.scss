@@ -14,8 +14,21 @@ body {
 
 .sidebar {
   padding: 25px;
+  max-width: 100%;
+  width: 100%;
 
-  @apply w-1/5 bg-primary text-white mr-auto;
+  @apply mb-10;
+
+  @media (min-width: 768px) {
+    max-width: 230px;
+    @apply mb-0;
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 283px;
+  }
+
+  @apply bg-primary text-white;
 
   section {
     &:not(:last-child) {
@@ -25,10 +38,18 @@ body {
 }
 
 .product-list {
-  @apply w-4/5 flex flex-wrap -mx-6;
+  @apply flex flex-wrap;
+
+  @media (min-width: 768px) {
+    @apply -mx-6;
+  }
 
   .col {
-    @apply w-1/4 px-6 mb-10;
+    @apply mb-10;
+
+    @media (min-width: 768px) {
+      @apply px-6;
+    }
   }
 
   article {
@@ -42,7 +63,13 @@ body {
 
     img {
       width: 100%;
-      min-height: 218px;
+      max-height: 140px;
+      object-fit: cover;
+
+      @media (min-width: 768px) {
+        min-height: 218px;
+        max-height: 218px;
+      }
     }
 
     div {
@@ -60,10 +87,18 @@ body {
 }
 
 .product-detail {
-  @apply w-4/5 flex flex-wrap -mx-6;
+  @apply flex flex-wrap;
+
+  @media (min-width: 768px) {
+    @apply -mx-6;
+  }
 
   .col {
-    @apply w-1/4 px-6 mb-10;
+    @apply mb-10;
+
+    @media (min-width: 768px) {
+      @apply px-6;
+    }
   }
 }
 

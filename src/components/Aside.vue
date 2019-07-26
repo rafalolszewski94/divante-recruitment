@@ -1,5 +1,5 @@
 <template>
-  <aside class="sidebar">
+  <aside class="sidebar mr-12">
     <section>
       <h3><img src="../assets/book-alt.svg" alt="book icon" /> Contact</h3>
       <p class="text-sm opacity-75">
@@ -52,9 +52,8 @@ export default {
 <style scoped lang="scss">
 .cart {
   height: 130px;
-  width: 210px;
 
-  @apply border border-white border-dashed items-center justify-center overflow-y-auto;
+  @apply border border-white border-dashed items-center justify-center overflow-y-auto w-full max-w-full;
 }
 
 h3 {

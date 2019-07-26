@@ -1,21 +1,17 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <main>
-        <div class="icon">
-          <img src="../assets/book-alt-blue.svg" alt="" />
-        </div>
-
-        <h1>About</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab commodi
-          dignissimos dolor doloremque, doloribus ducimus eos ex exercitationem
-          facere facilis ipsam ipsum iusto laboriosam laborum magnam maiores
-          numquam pariatur, ratione reiciendis saepe tempore tem.
-        </p>
-      </main>
+  <main>
+    <div class="icon">
+      <img src="../assets/book-alt-blue.svg" alt="" />
     </div>
-  </div>
+
+    <h1>About</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab commodi
+      dignissimos dolor doloremque, doloribus ducimus eos ex exercitationem
+      facere facilis ipsam ipsum iusto laboriosam laborum magnam maiores
+      numquam pariatur, ratione reiciendis saepe tempore tem.
+    </p>
+  </main>
 </template>
 
 <script>

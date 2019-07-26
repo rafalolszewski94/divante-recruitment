@@ -1,31 +1,28 @@
 <template>
-  <div class="container mb-10">
-    <div class="row">
-      <main>
-        <div
-          class="img-container"
-          :style="{ backgroundImage: `url(${product.img})` }"
-        ></div>
-        <footer>
-          <div class="details">
-            <h1>{{ product.title }}</h1>
-            <p>{{ product.desc }}</p>
-          </div>
-          <button
-            @click="addProductToCart(product.id)"
-            :disabled="productIsInCart"
-            :class="{ disabled: productIsInCart }"
-          >
-            <template v-if="productIsInCart">
-              Added
-            </template>
-            <template v-if="!productIsInCart">
-              Add to Cart
-            </template>
-          </button>
-        </footer>
-      </main>
-    </div>
+  <div class="col">
+    <div
+      class="img-container"
+      :style="{ backgroundImage: `url(${product.img})` }"
+    ></div>
+    <footer class="flex flex-col xl:flex-row items-start xl:items-center">
+      <div class="details w-full xl:w-3/5">
+        <h1>{{ product.title }}</h1>
+        <p>{{ product.desc }}</p>
+      </div>
+      <button
+        class="block w-full mt-6 xl:w-64"
+        @click="addProductToCart(product.id)"
+        :disabled="productIsInCart"
+        :class="{ disabled: productIsInCart }"
+      >
+        <template v-if="productIsInCart">
+          Added
+        </template>
+        <template v-if="!productIsInCart">
+          Add to Cart
+        </template>
+      </button>
+    </footer>
   </div>
 </template>
 
@@ -76,12 +73,10 @@ main {
 footer {
   padding: 40px 50px;
 
-  @apply flex items-center bg-primary text-white;
+  @apply bg-primary text-white;
 }
 
 .details {
-  @apply w-3/5;
-
   h1 {
     @apply text-2xl font-medium;
   }
@@ -94,7 +89,7 @@ footer {
 button {
   background-color: #49da7f;
 
-  @apply text-white px-24 py-4 font-medium ml-auto;
+  @apply text-white py-4 font-medium ml-auto;
 
   &.disabled {
     @apply opacity-75 cursor-not-allowed;

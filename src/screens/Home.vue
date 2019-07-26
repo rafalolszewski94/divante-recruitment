@@ -1,7 +1,11 @@
 <template>
-  <main :class="getMainClass()">
+  <main class="w-full" :class="getMainClass()">
     <template v-if="$router.currentRoute.name !== 'Product'">
-      <div class="col" v-for="(product, i) in products" :key="`Product(${i})`">
+      <div
+        class="col w-full md:w-1/2 lg:w-1/3 xl:w-1/4"
+        v-for="(product, i) in products"
+        :key="`Product(${i})`"
+      >
         <router-link
           tag="article"
           :to="{ name: 'Product', params: { id: product.id } }"
@@ -34,6 +38,7 @@ export default {
       return {
         'product-detail': this.$router.currentRoute.name === 'Product',
         'product-list': this.$router.currentRoute.name !== 'Product',
+        'w-4/5': this.$router.currentRoute.name !== 'Product',
       };
     },
     viewProduct(productId) {

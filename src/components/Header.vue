@@ -3,8 +3,19 @@
     <div class="container">
       <router-link to="/" class="logo">LOGO</router-link>
 
-      <div class="ml-6 flex">
-        <ul class="links">
+      <div
+        :class="{
+          hidden: !showMenu,
+          'sm:flex': !showMenu,
+          'mobile-menu': showMenu,
+        }"
+      >
+        <ul class="links" @click="toggleMenu">
+          <li class="flex sm:hidden">
+            <a href="#">
+              <img src="../assets/multiply.svg" class="w-6 h-6" alt="" />
+            </a>
+          </li>
           <li><router-link to="/">Home</router-link></li>
           <li><router-link to="/about">About</router-link></li>
           <li><router-link to="/contact">Contact</router-link></li>
@@ -16,6 +27,11 @@
           </button>
         </div>
       </div>
+      <div class="toggle-menu flex sm:hidden">
+        <button @click="toggleMenu">
+          <img src="../assets/ellipsis-v.svg" alt="" />
+        </button>
+      </div>
     </div>
   </header>
 </template>
@@ -23,7 +39,19 @@
 <script>
 export default {
   name: 'Header',
+  data() {
+    return {
+      showMenu: false,
+    };
+  },
   computed: {},
+  methods: {
+    toggleMenu() {
+      if (window.innerWidth < 768) {
+        this.showMenu = !this.showMenu;
+      }
+    },
+  },
 };
 </script>
 
@@ -68,12 +96,57 @@ header {
 .search {
   height: 99px;
   width: 100px;
-  background-color: #f5f5f5;
 
-  @apply inline-flex flex-grow items-center justify-center;
+  @apply inline-flex items-center justify-center;
 
   button {
     @apply inline-flex h-full flex-grow items-center justify-center;
+  }
+}
+
+.toggle-menu {
+  height: 99px;
+  width: 100px;
+
+  @apply items-center justify-center;
+
+  img {
+    height: 28px;
+  }
+
+  button {
+    &:focus {
+      background-color: #f5f5f5;
+    }
+  }
+}
+
+.search {
+  background-color: #f5f5f5;
+
+  @apply flex-grow;
+}
+
+.mobile-menu {
+  z-index: 1;
+  height: 100vh;
+
+  @apply fixed w-full bg-white left-0 top-0 flex flex-col shadow-xl overflow-y-auto;
+
+  li {
+    @apply w-full flex-grow;
+  }
+
+  .links {
+    @apply flex-col;
+
+    a {
+      @apply w-full justify-center;
+    }
+  }
+
+  .search {
+    @apply w-full flex-shrink-0;
   }
 }
 </style>

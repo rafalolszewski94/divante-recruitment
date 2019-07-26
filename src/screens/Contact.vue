@@ -1,22 +1,18 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <main>
-        <div class="icon">
-          <img src="../assets/book-alt-blue.svg" alt="" />
-        </div>
-
-        <h1>Contact</h1>
-        <address class="not-italic">
-          <a href="mailto:divante@divante.pl">divante@divante.pl</a><br /><br />
-          <a href="tel:+48123456789">tel. 123-456-789</a><br />
-          <a href="tel:+48887236324">tel. 887-236-324</a><br /><br />
-          ul. Dmowskiego 17<br />
-          00-000 Wrocław
-        </address>
-      </main>
+  <main>
+    <div class="icon">
+      <img src="../assets/book-alt-blue.svg" alt="" />
     </div>
-  </div>
+
+    <h1>Contact</h1>
+    <address class="not-italic">
+      <a href="mailto:divante@divante.pl">divante@divante.pl</a><br /><br />
+      <a href="tel:+48123456789">tel. 123-456-789</a><br />
+      <a href="tel:+48887236324">tel. 887-236-324</a><br /><br />
+      ul. Dmowskiego 17<br />
+      00-000 Wrocław
+    </address>
+  </main>
 </template>
 
 <script>
